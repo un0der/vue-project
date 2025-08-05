@@ -3,7 +3,7 @@
 </script>
 
 <template>
- <el-button type="success">Success</el-button>
+ <RouterView></RouterView>
 </template>
 
 <style scoped>
