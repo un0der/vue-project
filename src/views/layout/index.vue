@@ -1,7 +1,19 @@
 <template>
   <div>
-    <h1>我是首页
+    <layoutnav></layoutnav>
+    <layoutheader></layoutheader>
+    
+      <!-- home和分类 -->
       <router-view></router-view>
-    </h1>
+    <layoutnfooter></layoutnfooter>
   </div>
 </template>
+<style scoped lang="scss">
+
+</style>
+<script lang="ts" setup>
+import layoutheader from './components/layoutheader.vue';
+import layoutnav from './components/layoutnav.vue';
+import layoutnfooter from './components/layoutnfooter.vue';
+
+</script>

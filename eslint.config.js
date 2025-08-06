@@ -21,4 +21,10 @@ export default defineConfig([
 
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
+  // 不要求组件名必须是多个单词组成的
+  {
+    rules: {
+      'vue/multi-word-component-names': 'off'
+    }
+  }
 ])
