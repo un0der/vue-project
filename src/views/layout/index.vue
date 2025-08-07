@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="height: 2000px;">
+    <layoutfixed></layoutfixed>
     <layoutnav></layoutnav>
     <layoutheader></layoutheader>
     
@@ -12,8 +13,10 @@
 
 </style>
 <script lang="ts" setup>
+import layoutfixed from './components/layoutfixed.vue';
 import layoutheader from './components/layoutheader.vue';
 import layoutnav from './components/layoutnav.vue';
 import layoutnfooter from './components/layoutnfooter.vue';
+
 
 </script>

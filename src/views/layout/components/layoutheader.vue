@@ -49,6 +49,8 @@ onMounted(()=>{
     .container {
         display: flex;
         align-items: center;
+        position: relative;
+        top: 0;
     }
 
     .logo {
