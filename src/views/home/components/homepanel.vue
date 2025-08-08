@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props=defineProps<{title?:string,subtitle?:string}>()
-console.log(props.title)
+
 </script>
 
 
@@ -14,7 +14,11 @@ console.log(props.title)
         </h3>
       </div>
       <!-- 主体内容区域 -->
-      <div> <slot></slot> </div>
+      <div> 
+        <slot>
+
+        </slot> 
+    </div>
     </div>
   </div>
 </template>
