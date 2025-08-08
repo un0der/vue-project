@@ -19,6 +19,7 @@ import layoutheader from './components/layoutheader.vue';
 import layoutnav from './components/layoutnav.vue';
 import layoutnfooter from './components/layoutnfooter.vue';
 import { useCategoryStore } from '@/stores/category';
+import homepanel from '../home/components/homepanel.vue';
 
 const CategoryStore=useCategoryStore()
 onMounted(()=>{
