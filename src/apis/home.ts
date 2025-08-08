@@ -6,3 +6,6 @@ export function getBannerAPI() {
 export const findNewAPI = () => {
   return instance.get('home/new')
 }
+export const getHotAPI = () => {
+  return instance.get('home/hot')
+}
