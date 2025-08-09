@@ -8,7 +8,7 @@ export const useCategoryStore = defineStore('category', () => {
   const category = async () => {
     //await 会等待 Promise 完成，并将 Promise 解析后的结果赋值给 res
     //所以 res 是 API 调用成功后返回的实际数据，而不是 Promise 对象
-    const res = await getCategoryAPI()
+    const res = await getCategoryAPI() as any
     categorylist.value = res.result
     return res
   }
