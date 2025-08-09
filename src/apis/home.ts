@@ -9,3 +9,6 @@ export const findNewAPI = () => {
 export const getHotAPI = () => {
   return instance.get('home/hot')
 }
+export const getGoodsAPI = () => {
+  return instance.get('home/goods')
+}
