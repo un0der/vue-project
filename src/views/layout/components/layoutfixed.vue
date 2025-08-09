@@ -14,7 +14,7 @@ const {y}=useScroll(window)
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
       <ul class="app-header-nav ">
-          <li v-for="i in CategoryStore.categorylist" :key="i.id"><RouterLink to="/">{{ i.name }}</RouterLink></li>
+          <li v-for="i in CategoryStore.categorylist" :key="i.id"><RouterLink :to="`/category/${i.id}`">{{ i.name }}</RouterLink></li>
       </ul>
 
       <div class="right">

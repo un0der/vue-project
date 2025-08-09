@@ -13,7 +13,7 @@ const CategoryStore=useCategoryStore()
 
             <!-- <LayoutHeaderUl /> -->
              <ul class="app-header-nav">
-                <li v-for="i in CategoryStore.categorylist" :key="i.id"><RouterLink to="/">{{ i.name }}</RouterLink></li>
+                <li v-for="i in CategoryStore.categorylist" :key="i.id"><RouterLink :to="`/category/${i.id}`">{{ i.name }}</RouterLink></li>
              </ul>
             <div class="search">
                 <i class="iconfont icon-search"></i>
