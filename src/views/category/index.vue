@@ -1,36 +1,12 @@
 <script setup>
-import { getCategoryAPI } from "@/apis/category";
-import { ref, onMounted, onUpdated } from "vue";
 
-import { useRoute, onBeforeRouteUpdate } from "vue-router";
-const route = useRoute();
-console.log(route.fullPath);
-const categorydata = ref({});
-const category = async (id = route.params.id) => {
-  const res = await getCategoryAPI(id);
-  categorydata.value = res.result;
-};
-onMounted(() => {
-  category();
-});
-onBeforeRouteUpdate((to) => {
-  category(to.params.id);
-});
-// onUpdated(() => {
-//   category(route.params.id);
-// });
-// 获取轮播图
-import { getBannerAPI } from "@/apis/home.js";
+import { useBanner } from "./composables/useBanner";
+
 import goodsItem from "../home/components/goodsItem.vue";
+import { useCategory } from "./composables/useCategory";
+const {bannerlist}=useBanner()
+const {categorydata}=useCategory()
 
-const bannerlist = ref([]);
-const getbanner = async () => {
-  const res = await getBannerAPI({ distributionSite: "2" });
-  bannerlist.value = res.result;
-};
-onMounted(() => {
-  getbanner();
-});
 </script>
 
 <template>
