@@ -2,19 +2,23 @@
 import { getCategoryAPI } from "@/apis/category";
 import { ref, onMounted, onUpdated } from "vue";
 
-import { useRoute } from "vue-router";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
 const route = useRoute();
+console.log(route.fullPath);
 const categorydata = ref({});
-const category = async (id) => {
+const category = async (id = route.params.id) => {
   const res = await getCategoryAPI(id);
   categorydata.value = res.result;
 };
 onMounted(() => {
-  category(route.params.id);
+  category();
 });
-onUpdated(() => {
-  category(route.params.id);
+onBeforeRouteUpdate((to) => {
+  category(to.params.id);
 });
+// onUpdated(() => {
+//   category(route.params.id);
+// });
 // 获取轮播图
 import { getBannerAPI } from "@/apis/home.js";
 import goodsItem from "../home/components/goodsItem.vue";
@@ -27,9 +31,6 @@ const getbanner = async () => {
 onMounted(() => {
   getbanner();
 });
-// setInterval(()=>{
-//   console.log(categorydata.value)
-// },3000)
 </script>
 
 <template>
