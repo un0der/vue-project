@@ -1,6 +1,11 @@
 import instance from "@/utils/https";
-export function getBannerAPI() {
-  return instance.get('home/banner')
+export function getBannerAPI(params = {}) {
+  const { distributionSite = '1' } = params
+  return instance.get('home/banner', {
+    params: {
+      distributionSite
+    }
+  })
 }
 
 export const findNewAPI = () => {

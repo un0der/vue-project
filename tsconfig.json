@@ -27,7 +27,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "shims-vue.d.ts",
-    "src/stores/category.ts"
+    "src/stores/category.ts",
+    "src/apis/home.js"
   ],
   "exclude": [
     "node_modules"
