@@ -12,7 +12,6 @@ const app = createApp(App)
 app.use(lazyPlugin)
 app.use(createPinia())
 app.use(router)
-console.log(router.fullPath)
 app.mount('#app')
 
 app.config.errorHandler = (err, vm, info) => {
