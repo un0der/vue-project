@@ -1,12 +1,16 @@
 <script setup>
 
 import { useBanner } from "./composables/useBanner";
+import { watch } from 'vue'
 
 import goodsItem from "../home/components/goodsItem.vue";
 import { useCategory } from "./composables/useCategory";
+import { onMounted } from "vue";
 const {bannerlist}=useBanner()
 const {categorydata}=useCategory()
-
+// watch(categorydata, (newValue) => {
+//   console.log('Category data updated:', newValue)
+// }, { deep: true, immediate: true })
 </script>
 
 <template>
@@ -32,7 +36,7 @@ const {categorydata}=useCategory()
         <h3>全部分类</h3>
         <ul>
           <li v-for="i in categorydata.children" :key="i.id">
-            <RouterLink to="/">
+            <RouterLink :to="`/category/sub/${i.id}`">
               <img :src="i.picture" />
               <p>{{ i.name }}</p>
             </RouterLink>

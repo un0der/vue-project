@@ -2,6 +2,7 @@ import category from '@/views/category/index.vue'
 import home from '@/views/home/index.vue'
 import layout from '@/views/layout/index.vue'
 import login from '@/views/login/index.vue'
+import subcategory from '@/views/subcategory/index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 
@@ -19,7 +20,13 @@ const router = createRouter({
         {
           path: 'category/:id',
           component: category,
-        },
+         },
+        {
+          path:'category/sub/:id',
+          component:subcategory
+        }
+          
+        
       ]
 
     },
