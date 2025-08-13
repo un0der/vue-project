@@ -4,7 +4,7 @@ import layout from '@/views/layout/index.vue'
 import login from '@/views/login/index.vue'
 import subcategory from '@/views/subcategory/index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-
+import detail from '@/views/detail/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +24,10 @@ const router = createRouter({
         {
           path:'category/sub/:id',
           component:subcategory
+        },
+         {
+          path:'detail/:id',
+          component:detail
         }
           
         

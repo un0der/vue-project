@@ -1,15 +1,15 @@
 <script setup>
 
 import homepanel from './homepanel.vue';
-import {findNewAPI} from "@/apis/home.js"
+import { findNewAPI } from "@/apis/home.js"
 import { ref, onMounted } from 'vue';
-const newlist=ref([])
-const getnewlist=async ()=>{
-  const res=await findNewAPI()
-  newlist.value=res.result
+const newlist = ref([])
+const getnewlist = async () => {
+  const res = await findNewAPI()
+  newlist.value = res.result
   return res
 }
-onMounted(()=>{
+onMounted(() => {
   getnewlist()
 })
 
@@ -18,14 +18,14 @@ onMounted(()=>{
 <template>
   <homepanel title="新鲜好物" subtitle="新鲜出炉 品质靠谱">
     <ul class="goods-list">
-    <li v-for="item in newlist" :key="item.id">
-      <RouterLink to="/">
-        <img v-img-lazy="item.picture" alt="" />
-        <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
-      </RouterLink>
-    </li>
-  </ul>
+      <li v-for="item in newlist" :key="item.id">
+        <RouterLink :to="`/detail/${item.id}`">
+          <img v-img-lazy="item.picture" alt="" />
+          <p class="name">{{ item.name }}</p>
+          <p class="price">&yen;{{ item.price }}</p>
+        </RouterLink>
+      </li>
+    </ul>
   </homepanel>
 </template>
 
