@@ -2,6 +2,8 @@
 import { getDetailAPI } from '@/apis/detail';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import detailHot from './components/detailHot.vue';
+
 const route = useRoute()
 const detail = ref({})
 const getDetail = async () => {
@@ -116,7 +118,8 @@ onMounted(() => { getDetail() })
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-
+              <detailHot :hotType="1"></detailHot>
+              <detailHot :hotType="2"></detailHot>
             </div>
           </div>
         </div>

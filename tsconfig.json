@@ -29,7 +29,8 @@
     "shims-vue.d.ts",
     "src/stores/category.ts",
     "src/apis/home.ts",
-    "src/views/category/composables/useBanner.js"
+    "src/views/category/composables/useBanner.js",
+    "src/apis/detail.js"
   ],
   "exclude": [
     "node_modules"
