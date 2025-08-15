@@ -30,7 +30,8 @@
     "src/stores/category.ts",
     "src/apis/home.ts",
     "src/views/category/composables/useBanner.js",
-    "src/apis/detail.js"
+    "src/apis/detail.js",
+    "src/apis/user.js"
   ],
   "exclude": [
     "node_modules"
