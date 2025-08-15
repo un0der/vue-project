@@ -7,11 +7,12 @@ import App from './App.vue'
 import router from './router'
 
 import { lazyPlugin } from './directives'
-
+import { componentPlugin } from './components'
 const app = createApp(App)
 app.use(lazyPlugin)
 app.use(createPinia())
 app.use(router)
+app.use(componentPlugin)
 app.mount('#app')
 
 app.config.errorHandler = (err, vm, info) => {
