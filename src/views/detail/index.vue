@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import detailHot from './components/detailHot.vue';
 import imageView from '@/components/imageView/index.vue';
+import XtxSku from '@/components/XtxSku/index.vue'
 const route = useRoute()
 const detail = ref({})
 const getDetail = async () => {
@@ -12,7 +13,8 @@ const getDetail = async () => {
   console.log('detail数据:', detail.value);
 }
 onMounted(() => { getDetail() })
-
+//sku
+const skuChange = (sku) => { console.log(sku) }
 </script>
 
 <template>
@@ -35,7 +37,7 @@ onMounted(() => { getDetail() })
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-              <imageView></imageView>
+              <imageView :imageList="detail.mainPictures"></imageView>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
@@ -84,7 +86,7 @@ onMounted(() => { getDetail() })
                 </dl>
               </div>
               <!-- sku组件 -->
-
+              <XtxSku :goods="detail" @change="skuChange"></XtxSku>
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
