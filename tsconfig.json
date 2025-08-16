@@ -31,7 +31,9 @@
     "src/apis/home.ts",
     "src/views/category/composables/useBanner.js",
     "src/apis/detail.js",
-    "src/apis/user.js"
+    "src/apis/user.js",
+    "src/stores/user.js",
+    "src/main.js"
   ],
   "exclude": [
     "node_modules"
