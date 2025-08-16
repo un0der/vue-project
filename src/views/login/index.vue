@@ -1,14 +1,15 @@
 <script setup>
-import { LoginAPI } from '@/apis/user';
 import { ref } from 'vue';
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus';
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user';
+const userStore = useUserStore()
 const router = useRouter()
 //表单对象
 const form = ref({
-  account: '',
-  password: '',
+  account: 'xiaotuxian001',
+  password: '123456',
   agree: true
 })
 //表单规则
@@ -34,8 +35,7 @@ const dologin = () => {
   const { account, password } = form.value
   formRef.value.validate(async (valid) => {
     if (valid) {
-      const res = await LoginAPI({ account, password })
-      console.log(res)
+      await userStore.getUserInfo({ account, password })
       ElMessage({ type: 'success', message: '登录成功' })
       router.replace({ path: '/' })
     }

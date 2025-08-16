@@ -1,5 +1,5 @@
 import instance from "@/utils/https";
-interface LoginParams {
+export interface LoginParams {
   account: any;
   password: any;
 }
