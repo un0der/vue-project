@@ -33,7 +33,8 @@
     "src/apis/detail.js",
     "src/apis/user.js",
     "src/stores/user.js",
-    "src/main.js"
+    "src/main.js",
+    "src/utils/https.js"
   ],
   "exclude": [
     "node_modules"
