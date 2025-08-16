@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
+    "noImplicitAny": false, //仅允许隐式 any
     "jsx": "preserve",
     "moduleResolution": "node",
     "esModuleInterop": true,
