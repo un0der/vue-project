@@ -2,8 +2,7 @@ import axios from "axios";
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus';
 import { useUserStore } from "@/stores/user";
-
-
+import router from '@/router'
 const instance = axios.create(
   {
     baseURL: 'https://pcapi-xiaotuxian-front-devtest.itheima.net',
@@ -25,9 +24,13 @@ instance.interceptors.response.use(res => {
 }, async (e) => {
   console.log(e)
   ElMessage({ type: 'warning', message: e.response.data.message })
-  const router = await import('vue-router').then(m => m.useRouter());
-  router.push('/login');
-  Promise.reject(e)
+  if (e.response.status === 401) {
+    const userStore = useUserStore()
+    userStore.clearUserInfo()
+
+    router.push('/login');
+  }
+  return Promise.reject(e)
 }
 
 )

@@ -20,17 +20,17 @@ const router = createRouter({
         {
           path: 'category/:id',
           component: category,
-         },
-        {
-          path:'category/sub/:id',
-          component:subcategory
         },
-         {
-          path:'detail/:id',
-          component:detail
+        {
+          path: 'category/sub/:id',
+          component: subcategory
+        },
+        {
+          path: 'detail/:id',
+          component: detail
         }
-          
-        
+
+
       ]
 
     },
@@ -39,7 +39,7 @@ const router = createRouter({
       component: login
     }
   ],
-  scrollBehavior(){return {top:0}}
+  scrollBehavior() { return { top: 0 } }
 })
 
 export default router
