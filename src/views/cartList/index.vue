@@ -26,7 +26,7 @@ const cartStore = useCartStore()
           <tbody>
             <tr v-for="i in cartStore.cartList" :key="i.id">
               <td>
-                <el-checkbox />
+                <el-checkbox @change="(val) => cartStore.singleCheck(i, val)" :checked="i.selected" />
               </td>
               <td>
                 <div class="goods">
