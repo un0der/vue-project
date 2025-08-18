@@ -17,7 +17,7 @@ import layoutfixed from "./components/layoutfixed.vue";
 import layoutheader from "./components/layoutheader.vue";
 import layoutnav from "./components/layoutnav.vue";
 import layoutnfooter from "./components/layoutnfooter.vue";
-import { useCategoryStore } from "@/stores/category";
+import { useCategoryStore } from "@/stores/categoryStore";
 import homepanel from "../home/components/homepanel.vue";
 
 const CategoryStore = useCategoryStore();

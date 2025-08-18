@@ -1,17 +1,40 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-
+import { useUserStore } from "./userStore";
+import { findNewCartListAPI, inserCartAPI, delCartAPI } from "@/apis/cart";
 export const useCartStore = defineStore('cart', () => {
   const cartList = ref<CartItem[]>([])
+  const useStore = useUserStore()
+  const isLogin = computed(() => useStore.userInfo.token)
+  //更新
+  const updataCartList = async () => {
+    const res = await findNewCartListAPI() as any
+    cartList.value = res.result
+  }
   //添加
-  const addCart = (goods) => {
-    const item = cartList.value.find((item) => goods.skuId === item.skuId)
-    if (item) { item.count++ }
-    else { cartList.value.push(goods) }
+  const addCart = async (goods) => {
+    if (isLogin.value) {
+      const { skuId, count } = goods
+      await inserCartAPI({ skuId, count })
+      updataCartList()
+    }
+    else {
+      const item = cartList.value.find((item) => goods.skuId === item.skuId)
+      if (item) { item.count++ }
+      else { cartList.value.push(goods) }
+    }
+
   }
   //删除
-  const delCart = (skuId) => {
-    cartList.value = cartList.value.filter((item) => { return skuId !== item.skuId })
+  const delCart = async (skuId) => {
+    if (isLogin.value) {
+      await delCartAPI([skuId])
+      updataCartList()
+    }
+    else {
+      cartList.value = cartList.value.filter((item) => { return skuId !== item.skuId })
+    }
+
   }
   //单选框
   const singleCheck = (i, selected) => {
