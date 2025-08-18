@@ -24,7 +24,10 @@ export const useCartStore = defineStore('cart', () => {
   //总价
   const allcount = computed(() => cartList.value.reduce((total, current) => { return total + current.count }, 0))
   const allprice = computed(() => cartList.value.reduce((total, current) => { return total + current.count * current.price }, 0))
-  return ({ cartList, addCart, delCart, allcount, allprice, singleCheck, isAll, checkAll })
+  //选中总价
+  const selectedCount = computed(() => cartList.value.filter((item) => item.selected).reduce((total, current) => { return total + current.count }, 0))
+  const selectedPrice = computed(() => cartList.value.filter((item) => item.selected).reduce((total, current) => { return total + current.count * current.price }, 0))
+  return ({ cartList, addCart, delCart, allcount, allprice, singleCheck, isAll, checkAll, selectedCount, selectedPrice })
 }, {
   persist: true,
 }
