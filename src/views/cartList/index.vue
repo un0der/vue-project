@@ -13,7 +13,7 @@ const cartStore = useCartStore()
           <thead>
             <tr>
               <th width="120">
-                <el-checkbox />
+                <el-checkbox :model-value="cartStore.isAll" @change="(selected) => cartStore.checkAll(selected)" />
               </th>
               <th width="400">商品信息</th>
               <th width="220">单价</th>
@@ -26,7 +26,7 @@ const cartStore = useCartStore()
           <tbody>
             <tr v-for="i in cartStore.cartList" :key="i.id">
               <td>
-                <el-checkbox @change="(val) => cartStore.singleCheck(i, val)" :checked="i.selected" />
+                <el-checkbox @change="(val) => cartStore.singleCheck(i, val)" :model-value="i.selected" />
               </td>
               <td>
                 <div class="goods">
