@@ -38,4 +38,9 @@ export default defineConfig({
 
     },
   },
+    server: {
+    host: '0.0.0.0', // 监听所有网络接口
+    port: 5173,      // 明确指定端口
+    strictPort: true // 如果端口被占用则报错而非自动换端口
+  }
 })
