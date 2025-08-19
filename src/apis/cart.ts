@@ -15,7 +15,3 @@ export const delCartAPI = (ids) => {
 export const mergeCartAPI = (data) => {
   return instance.post('/member/cart/merge', data)
 }
-//
-export const getCheckInfoAPI = () => {
-  return instance.get("/member/order/pre")
-}
