@@ -11,3 +11,7 @@ export const findNewCartListAPI = () => {
 export const delCartAPI = (ids) => {
   return instance.delete('/member/cart', { data: { ids } })
 }
+//合并
+export const mergeCartAPI = (data) => {
+  return instance.post('/member/cart/merge', data)
+}

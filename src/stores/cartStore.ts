@@ -36,6 +36,10 @@ export const useCartStore = defineStore('cart', () => {
     }
 
   }
+  //清除购物车
+  const clearCart = () => {
+    cartList.value = []
+  }
   //单选框
   const singleCheck = (i, selected) => {
     const item = cartList.value.find((item) => i.skuId === item.skuId)
@@ -50,7 +54,7 @@ export const useCartStore = defineStore('cart', () => {
   //选中总价
   const selectedCount = computed(() => cartList.value.filter((item) => item.selected).reduce((total, current) => { return total + current.count }, 0))
   const selectedPrice = computed(() => cartList.value.filter((item) => item.selected).reduce((total, current) => { return total + current.count * current.price }, 0))
-  return ({ cartList, addCart, delCart, allcount, allprice, singleCheck, isAll, checkAll, selectedCount, selectedPrice })
+  return ({ cartList, addCart, delCart, allcount, allprice, singleCheck, isAll, checkAll, selectedCount, selectedPrice, clearCart, updataCartList })
 }, {
   persist: true,
 }
