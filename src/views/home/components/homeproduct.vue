@@ -1,15 +1,15 @@
 <script setup>
-import { ref,onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import homepanel from './homepanel.vue';
 import { getGoodsAPI } from '@/apis/home';
 import goodsItem from './goodsItem.vue';
-const goodslist=ref([])
-const getgoods=async ()=>{
-  const res=await getGoodsAPI()
-  goodslist.value=res.result
+const goodslist = ref([])
+const getgoods = async () => {
+  const res = await getGoodsAPI()
+  goodslist.value = res.result
   return res
 }
-onMounted(()=>{
+onMounted(() => {
   getgoods()
 })
 
@@ -29,7 +29,7 @@ onMounted(()=>{
         </RouterLink>
         <ul class="goods-list">
           <li v-for="good in cate.goods" :key="good.id">
-           <goodsItem :good="good"></goodsItem>
+            <goodsItem :good="good" @click="$router.push(`/detail/${good.id}`)"></goodsItem>
           </li>
         </ul>
       </div>
@@ -41,6 +41,7 @@ onMounted(()=>{
 .home-product {
   background: #fff;
   margin-top: 20px;
+
   .sub {
     margin-bottom: 2px;
 
@@ -124,7 +125,7 @@ onMounted(()=>{
       }
     }
 
-   
+
   }
 }
 </style>

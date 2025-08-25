@@ -1,4 +1,5 @@
 <script setup>
+import router from '@/router';
 import { useUserStore } from '@/stores/userStore';
 import { storeToRefs } from 'pinia';
 
@@ -24,7 +25,7 @@ const confirm = () => {
               </template>
             </el-popconfirm>
           </li>
-          <li><a href="javascript:;">我的订单</a></li>
+          <li><a href="javascript:;" @click="$router.push('/member')">我的订单</a></li>
           <li><a href="javascript:;">会员中心</a></li>
         </template>
         <template v-else>
